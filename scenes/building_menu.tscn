@@ -1,0 +1,439 @@
+[gd_scene load_steps=18 format=3 uid="uid://mlgjwly0sjst"]
+
+[ext_resource type="Script" path="res://scripts/building_menu.gd" id="1_jr522"]
+[ext_resource type="Texture2D" uid="uid://daicy4h1emqca" path="res://assets/buildingTiles_052.png" id="2_tr6n0"]
+[ext_resource type="Script" path="res://scripts/BuildingMenuItem.gd" id="3_4872b"]
+[ext_resource type="Texture2D" uid="uid://dualfgy52kkyi" path="res://assets/Forest.png" id="3_juhu7"]
+[ext_resource type="Texture2D" uid="uid://rir6tx2g52iy" path="res://assets/Cocoa-Forest.png" id="4_esmi4"]
+[ext_resource type="Texture2D" uid="uid://kv6gbhpt1oj6" path="res://assets/buildingIcon2.png" id="4_qb2i8"]
+[ext_resource type="Texture2D" uid="uid://db4fk8ryqcqmm" path="res://assets/Orange-Forest.png" id="6_7n4l8"]
+[ext_resource type="Texture2D" uid="uid://bgk5nm6jp1xu8" path="res://assets/Rubber-Forest (Custom).png" id="7_g6aud"]
+[ext_resource type="Texture2D" uid="uid://b5mu2eklqrwp3" path="res://assets/Palm-Forest.png" id="8_j7o2x"]
+[ext_resource type="Texture2D" uid="uid://c3cgdx3vom66v" path="res://assets/Coal-Plant.png" id="9_u5qwy"]
+[ext_resource type="Texture2D" uid="uid://df8v5qx78pkj3" path="res://assets/Nuclear-Plant.png" id="10_a80ut"]
+[ext_resource type="Texture2D" uid="uid://ct0w46wyyv0hk" path="res://assets/Wind-Farm.png" id="11_ht88h"]
+[ext_resource type="Texture2D" uid="uid://d3otd1kc7m8nw" path="res://assets/Leisure Centre.png" id="12_fo528"]
+[ext_resource type="Texture2D" uid="uid://domeb086d0rq2" path="res://assets/Stadium-2.png" id="13_os74q"]
+[ext_resource type="Texture2D" uid="uid://badepd473lhy" path="res://assets/Dairy-Farm-2.png" id="14_bagps"]
+[ext_resource type="Texture2D" uid="uid://byjfq0iiy1p1b" path="res://assets/Park.png" id="15_6odak"]
+[ext_resource type="Texture2D" uid="uid://dxwvjnmkqcyq7" path="res://assets/HorticultureFarm.png" id="17_5jgq6"]
+
+[node name="BuildingMenu" type="Control" node_paths=PackedStringArray("MenuContainer")]
+layout_mode = 3
+anchor_right = 0.219
+anchor_bottom = 0.246
+offset_right = -420.48
+offset_bottom = -265.68
+size_flags_horizontal = 3
+mouse_filter = 1
+script = ExtResource("1_jr522")
+MenuContainer = NodePath("MenuContainer")
+
+[node name="BuildButton" type="MenuButton" parent="."]
+z_index = 2
+layout_mode = 2
+offset_left = -141.0
+offset_top = 135.0
+offset_right = -5.0
+offset_bottom = 271.0
+mouse_filter = 1
+icon = ExtResource("4_qb2i8")
+icon_alignment = 2
+
+[node name="MenuContainer" type="ScrollContainer" parent="."]
+z_index = 2
+layout_direction = 3
+layout_mode = 0
+offset_left = 149.0
+offset_top = 58.0
+offset_right = 1417.0
+offset_bottom = 272.0
+follow_focus = true
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer"]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 10
+
+[node name="DairyFarmItem" type="Button" parent="MenuContainer/HBoxContainer" node_paths=PackedStringArray("BuildingMenu")]
+layout_mode = 2
+mouse_filter = 1
+action_mode = 0
+text = "Dairy Farm
+
+"
+icon = ExtResource("14_bagps")
+script = ExtResource("3_4872b")
+ID = 37
+BuildingMenu = NodePath("../../..")
+
+[node name="Cost" type="Label" parent="MenuContainer/HBoxContainer/DairyFarmItem"]
+modulate = Color(1, 1, 1, 0.741176)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 64.0
+offset_right = 17.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+
+[node name="WheatFarmItem" type="Button" parent="MenuContainer/HBoxContainer" node_paths=PackedStringArray("BuildingMenu")]
+layout_mode = 2
+mouse_filter = 1
+action_mode = 0
+text = "Wheat Farm
+
+"
+icon = ExtResource("17_5jgq6")
+script = ExtResource("3_4872b")
+ID = 39
+BuildingMenu = NodePath("../../..")
+
+[node name="Cost" type="Label" parent="MenuContainer/HBoxContainer/WheatFarmItem"]
+modulate = Color(1, 1, 1, 0.741176)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 64.0
+offset_right = 17.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+
+[node name="OfficeItem" type="Button" parent="MenuContainer/HBoxContainer" node_paths=PackedStringArray("BuildingMenu")]
+layout_mode = 2
+mouse_filter = 1
+action_mode = 0
+text = "Office
+
+"
+icon = ExtResource("2_tr6n0")
+script = ExtResource("3_4872b")
+ID = 1
+BuildingMenu = NodePath("../../..")
+
+[node name="Cost" type="Label" parent="MenuContainer/HBoxContainer/OfficeItem"]
+modulate = Color(1, 1, 1, 0.741176)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 109.0
+offset_top = 64.0
+offset_right = -14.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+
+[node name="PalmForestItem" type="Button" parent="MenuContainer/HBoxContainer" node_paths=PackedStringArray("BuildingMenu")]
+layout_mode = 2
+mouse_filter = 1
+action_mode = 0
+text = "Palm Forest
+
+"
+icon = ExtResource("8_j7o2x")
+script = ExtResource("3_4872b")
+ID = 30
+BuildingMenu = NodePath("../../..")
+
+[node name="Cost" type="Label" parent="MenuContainer/HBoxContainer/PalmForestItem"]
+modulate = Color(1, 1, 1, 0.741176)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 64.0
+offset_right = 17.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+
+[node name="OrangeForestItem" type="Button" parent="MenuContainer/HBoxContainer" node_paths=PackedStringArray("BuildingMenu")]
+layout_mode = 2
+mouse_filter = 1
+action_mode = 0
+text = "Orange Forest
+
+"
+icon = ExtResource("6_7n4l8")
+script = ExtResource("3_4872b")
+ID = 28
+BuildingMenu = NodePath("../../..")
+
+[node name="Cost" type="Label" parent="MenuContainer/HBoxContainer/OrangeForestItem"]
+modulate = Color(1, 1, 1, 0.741176)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = 64.0
+offset_right = 15.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+
+[node name="ForestItem" type="Button" parent="MenuContainer/HBoxContainer" node_paths=PackedStringArray("BuildingMenu")]
+layout_mode = 2
+mouse_filter = 1
+action_mode = 0
+text = "Forest
+
+"
+icon = ExtResource("3_juhu7")
+script = ExtResource("3_4872b")
+ID = 2
+BuildingMenu = NodePath("../../..")
+
+[node name="Cost" type="Label" parent="MenuContainer/HBoxContainer/ForestItem"]
+modulate = Color(1, 1, 1, 0.741176)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 139.0
+offset_top = 64.0
+offset_right = 16.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+
+[node name="CocoaForestItem" type="Button" parent="MenuContainer/HBoxContainer" node_paths=PackedStringArray("BuildingMenu")]
+layout_mode = 2
+mouse_filter = 1
+action_mode = 0
+text = "Cocoa Forest
+
+"
+icon = ExtResource("4_esmi4")
+script = ExtResource("3_4872b")
+ID = 31
+BuildingMenu = NodePath("../../..")
+
+[node name="Cost" type="Label" parent="MenuContainer/HBoxContainer/CocoaForestItem"]
+modulate = Color(1, 1, 1, 0.741176)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 64.0
+offset_right = 17.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+
+[node name="RubberForestItem" type="Button" parent="MenuContainer/HBoxContainer" node_paths=PackedStringArray("BuildingMenu")]
+layout_mode = 2
+mouse_filter = 1
+action_mode = 0
+text = "Rubber Forest
+
+"
+icon = ExtResource("7_g6aud")
+script = ExtResource("3_4872b")
+ID = 29
+BuildingMenu = NodePath("../../..")
+
+[node name="Cost" type="Label" parent="MenuContainer/HBoxContainer/RubberForestItem"]
+modulate = Color(1, 1, 1, 0.741176)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 139.0
+offset_top = 64.0
+offset_right = 16.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+
+[node name="CoalPPItem" type="Button" parent="MenuContainer/HBoxContainer" node_paths=PackedStringArray("BuildingMenu")]
+layout_mode = 2
+mouse_filter = 1
+action_mode = 0
+text = "Coal Power Plant
+
+"
+icon = ExtResource("9_u5qwy")
+script = ExtResource("3_4872b")
+ID = 32
+BuildingMenu = NodePath("../../..")
+
+[node name="Cost" type="Label" parent="MenuContainer/HBoxContainer/CoalPPItem"]
+modulate = Color(1, 1, 1, 0.741176)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 64.0
+offset_right = 17.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+
+[node name="WindFarmItem" type="Button" parent="MenuContainer/HBoxContainer" node_paths=PackedStringArray("BuildingMenu")]
+layout_mode = 2
+mouse_filter = 1
+action_mode = 0
+text = "Wind Farm
+
+"
+icon = ExtResource("11_ht88h")
+script = ExtResource("3_4872b")
+ID = 34
+BuildingMenu = NodePath("../../..")
+
+[node name="Cost" type="Label" parent="MenuContainer/HBoxContainer/WindFarmItem"]
+modulate = Color(1, 1, 1, 0.741176)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 64.0
+offset_right = 17.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+
+[node name="NuclearPPItem" type="Button" parent="MenuContainer/HBoxContainer" node_paths=PackedStringArray("BuildingMenu")]
+layout_mode = 2
+mouse_filter = 1
+action_mode = 0
+text = "Nuclear Power Plant
+
+"
+icon = ExtResource("10_a80ut")
+script = ExtResource("3_4872b")
+ID = 33
+BuildingMenu = NodePath("../../..")
+
+[node name="Cost" type="Label" parent="MenuContainer/HBoxContainer/NuclearPPItem"]
+modulate = Color(1, 1, 1, 0.741176)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 64.0
+offset_right = 17.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+
+[node name="ParkItem" type="Button" parent="MenuContainer/HBoxContainer" node_paths=PackedStringArray("BuildingMenu")]
+layout_mode = 2
+mouse_filter = 1
+action_mode = 0
+text = "Park
+
+"
+icon = ExtResource("15_6odak")
+script = ExtResource("3_4872b")
+ID = 38
+BuildingMenu = NodePath("../../..")
+
+[node name="Cost" type="Label" parent="MenuContainer/HBoxContainer/ParkItem"]
+modulate = Color(1, 1, 1, 0.741176)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 64.0
+offset_right = 17.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+
+[node name="LeisureCentreItem" type="Button" parent="MenuContainer/HBoxContainer" node_paths=PackedStringArray("BuildingMenu")]
+layout_mode = 2
+mouse_filter = 1
+action_mode = 0
+text = "Leisure Centre
+
+"
+icon = ExtResource("12_fo528")
+script = ExtResource("3_4872b")
+ID = 35
+BuildingMenu = NodePath("../../..")
+
+[node name="Cost" type="Label" parent="MenuContainer/HBoxContainer/LeisureCentreItem"]
+modulate = Color(1, 1, 1, 0.741176)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 108.0
+offset_top = 64.0
+offset_right = -15.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+
+[node name="StadiumItem" type="Button" parent="MenuContainer/HBoxContainer" node_paths=PackedStringArray("BuildingMenu")]
+layout_mode = 2
+mouse_filter = 1
+action_mode = 0
+text = "Stadium
+
+"
+icon = ExtResource("13_os74q")
+script = ExtResource("3_4872b")
+ID = 36
+BuildingMenu = NodePath("../../..")
+
+[node name="Cost" type="Label" parent="MenuContainer/HBoxContainer/StadiumItem"]
+modulate = Color(1, 1, 1, 0.741176)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 64.0
+offset_right = 17.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+
+[connection signal="pressed" from="BuildButton" to="." method="_on_build_button_pressed"]
+[connection signal="pressed" from="MenuContainer/HBoxContainer/DairyFarmItem" to="." method="_on_cocoa_forest_item_pressed"]
+[connection signal="pressed" from="MenuContainer/HBoxContainer/WheatFarmItem" to="." method="_on_cocoa_forest_item_pressed"]
+[connection signal="pressed" from="MenuContainer/HBoxContainer/OfficeItem" to="." method="_on_tree_item_pressed"]
+[connection signal="pressed" from="MenuContainer/HBoxContainer/PalmForestItem" to="." method="_on_cocoa_forest_item_pressed"]
+[connection signal="pressed" from="MenuContainer/HBoxContainer/OrangeForestItem" to="." method="_on_cocoa_forest_item_pressed"]
+[connection signal="pressed" from="MenuContainer/HBoxContainer/ForestItem" to="." method="_on_tree_item_pressed"]
+[connection signal="pressed" from="MenuContainer/HBoxContainer/CocoaForestItem" to="." method="_on_cocoa_forest_item_pressed"]
+[connection signal="pressed" from="MenuContainer/HBoxContainer/RubberForestItem" to="." method="_on_cocoa_forest_item_pressed"]
+[connection signal="pressed" from="MenuContainer/HBoxContainer/CoalPPItem" to="." method="_on_cocoa_forest_item_pressed"]
+[connection signal="pressed" from="MenuContainer/HBoxContainer/WindFarmItem" to="." method="_on_cocoa_forest_item_pressed"]
+[connection signal="pressed" from="MenuContainer/HBoxContainer/NuclearPPItem" to="." method="_on_cocoa_forest_item_pressed"]
+[connection signal="pressed" from="MenuContainer/HBoxContainer/ParkItem" to="." method="_on_cocoa_forest_item_pressed"]
+[connection signal="pressed" from="MenuContainer/HBoxContainer/LeisureCentreItem" to="." method="_on_cocoa_forest_item_pressed"]
+[connection signal="pressed" from="MenuContainer/HBoxContainer/StadiumItem" to="." method="_on_cocoa_forest_item_pressed"]

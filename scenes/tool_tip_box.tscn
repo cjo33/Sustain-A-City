@@ -1,0 +1,367 @@
+[gd_scene load_steps=12 format=3 uid="uid://c56q8m3q4xkh8"]
+
+[ext_resource type="Script" path="res://scripts/tool_tip_box.gd" id="1_t3ylk"]
+[ext_resource type="Texture2D" uid="uid://bapsdg8yf4gya" path="res://assets/environment.png" id="2_ny1sh"]
+[ext_resource type="FontVariation" uid="uid://cvb1mlku52ni2" path="res://scenes/bold.tres" id="2_swrvy"]
+[ext_resource type="Texture2D" uid="uid://b7lwthxq5rwx2" path="res://assets/economy.png" id="3_i0mb1"]
+[ext_resource type="Texture2D" uid="uid://b3x5k15x6o008" path="res://assets/flash.png" id="4_cncvo"]
+[ext_resource type="Texture2D" uid="uid://bicd7kncqjm4p" path="res://assets/happiness.png" id="5_thu77"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7qjqh"]
+
+[sub_resource type="Animation" id="Animation_ptps6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_v8p2t"]
+resource_name = "showToolTipBox"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0666667, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dwuwm"]
+_data = {
+"RESET": SubResource("Animation_ptps6"),
+"showToolTipBox": SubResource("Animation_v8p2t")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bp28b"]
+size = Vector2(520, 610)
+
+[node name="ToolTipBox" type="Control" node_paths=PackedStringArray("button")]
+physics_interpolation_mode = 0
+modulate = Color(1, 1, 1, 0)
+z_index = 100
+texture_filter = 6
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+script = ExtResource("1_t3ylk")
+button = NodePath("PanelContainer/HBoxContainer5/VBoxContainer/VBoxContainer/HBoxContainer5/Button")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 887.0
+offset_bottom = 1043.0
+scale = Vector2(0.275, 0.275)
+mouse_filter = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer5"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(838, 0)
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/HBoxContainer5/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="PanelContainer/HBoxContainer5/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("2_swrvy")
+theme_override_font_sizes/font_size = 56
+text = "Name"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/HBoxContainer5/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer5/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ny1sh")
+expand_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="Environment" type="Label" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 52
+text = "Environment"
+
+[node name="RepairLabel" type="Label" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer/Environment"]
+layout_mode = 2
+offset_left = 687.0
+offset_right = 751.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 52
+text = "5"
+horizontal_alignment = 2
+
+[node name="VSeparator3" type="VSeparator" parent="PanelContainer/HBoxContainer5/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/HBoxContainer5/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("3_i0mb1")
+expand_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="Money" type="Label" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 52
+text = "Money"
+
+[node name="RepairLabel" type="Label" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer2/Money"]
+layout_mode = 0
+offset_left = 687.0
+offset_right = 751.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 52
+text = "5"
+horizontal_alignment = 2
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/HBoxContainer5/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/HBoxContainer5/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("4_cncvo")
+expand_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="ElectricityUse" type="Label" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 52
+text = "Electricity Req"
+
+[node name="RepairLabel" type="Label" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer3/ElectricityUse"]
+layout_mode = 0
+offset_left = 574.0
+offset_top = -12.0
+offset_right = 751.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 52
+text = "5"
+horizontal_alignment = 2
+text_overrun_behavior = 3
+
+[node name="VSeparator" type="VSeparator" parent="PanelContainer/HBoxContainer5/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer/HBoxContainer5/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer5"]
+self_modulate = Color(1, 0.227451, 1, 1)
+layout_mode = 2
+texture = ExtResource("4_cncvo")
+expand_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="ElectricityGen" type="Label" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 52
+text = "Electricity Gen"
+
+[node name="RepairLabel" type="Label" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer5/ElectricityGen"]
+layout_mode = 0
+offset_left = 621.0
+offset_right = 751.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 52
+text = "5"
+horizontal_alignment = 2
+text_overrun_behavior = 3
+
+[node name="VSeparator5" type="VSeparator" parent="PanelContainer/HBoxContainer5/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/HBoxContainer5/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("5_thu77")
+expand_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="Happiness" type="Label" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 52
+text = "Happiness"
+
+[node name="RepairLabel" type="Label" parent="PanelContainer/HBoxContainer5/VBoxContainer/HBoxContainer4/Happiness"]
+layout_mode = 0
+offset_left = 687.0
+offset_right = 751.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 52
+text = "5"
+horizontal_alignment = 2
+
+[node name="VSeparator4" type="VSeparator" parent="PanelContainer/HBoxContainer5/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer5/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer/HBoxContainer5/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="FunFactTitle" type="Label" parent="PanelContainer/HBoxContainer5/VBoxContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("2_swrvy")
+theme_override_font_sizes/font_size = 52
+text = "Did You Know?"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/HBoxContainer5/VBoxContainer/VBoxContainer/HBoxContainer5"]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="PanelContainer/HBoxContainer5/VBoxContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(380, 180)
+layout_mode = 2
+theme_override_font_sizes/font_size = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7qjqh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer5/VBoxContainer/VBoxContainer/HBoxContainer5/Button"]
+layout_mode = 0
+offset_right = 379.0
+offset_bottom = 179.0
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/HBoxContainer5/VBoxContainer/VBoxContainer/HBoxContainer5/Button/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Repair" type="Label" parent="PanelContainer/HBoxContainer5/VBoxContainer/VBoxContainer/HBoxContainer5/Button/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 52
+text = "View Repair"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/HBoxContainer5/VBoxContainer/VBoxContainer/HBoxContainer5/Button/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Cost" type="Label" parent="PanelContainer/HBoxContainer5/VBoxContainer/VBoxContainer/HBoxContainer5/Button/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 7
+theme_override_font_sizes/font_size = 52
+text = "200"
+horizontal_alignment = 1
+
+[node name="FunFact" type="Label" parent="PanelContainer/HBoxContainer5/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 340)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 52
+text = "Fun facts will appear here! "
+autowrap_mode = 3
+
+[node name="VSeparator2" type="VSeparator" parent="PanelContainer/HBoxContainer5"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dwuwm")
+}
+
+[node name="MouseBlocker" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseBlocker"]
+position = Vector2(100, 152)
+shape = SubResource("RectangleShape2D_bp28b")
+
+[connection signal="pressed" from="PanelContainer/HBoxContainer5/VBoxContainer/VBoxContainer/HBoxContainer5/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="MouseBlocker" to="." method="_on_mouse_blocker_mouse_entered"]
+[connection signal="mouse_exited" from="MouseBlocker" to="." method="_on_mouse_blocker_mouse_exited"]
